@@ -1,8 +1,15 @@
 import React from 'react';
 import logo from './logo.svg';
-import './App.css';
+import './App.scss';
+import { useFetch } from './customHooks/useFetch';
+
+const API_BASE_URL = "https://api.covid19india.org";
 
 function App() {
+  const statewiseData = useFetch(`${API_BASE_URL}/data.json`)
+  const districtwiseData = useFetch(`${API_BASE_URL}/state_district_wise.json`)
+console.log({statewiseData, districtwiseData})
+
   return (
     <div className="App">
       <header className="App-header">
@@ -19,6 +26,9 @@ function App() {
           Learn React
         </a>
       </header>
+      <main>
+
+      </main>
     </div>
   );
 }
