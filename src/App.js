@@ -2,33 +2,27 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.scss';
 import { useFetch } from './customHooks/useFetch';
-
-const API_BASE_URL = "https://api.covid19india.org";
+import StatewiseData from './components/StatewiseData';
+import { API_BASE_URL } from './constants';
 
 function App() {
-  const statewiseData = useFetch(`${API_BASE_URL}/data.json`)
-  const districtwiseData = useFetch(`${API_BASE_URL}/state_district_wise.json`)
-console.log({statewiseData, districtwiseData})
+  const {
+    response: statewiseData,
+    error: statewiseError,
+    loading: statewiseLoading
+  } = useFetch(`${API_BASE_URL}/data.json`)
 
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        Covid-19 India
       </header>
-      <main>
-
+      <main className="App-main">
+        <StatewiseData statewiseData={statewiseData}/>
       </main>
+      <footer className="App-footer">
+        <p>Developed by <a href="https://www.linkedin.com/in/kskp1996/">Sai Krishna Prasad K</a></p>
+      </footer>
     </div>
   );
 }
