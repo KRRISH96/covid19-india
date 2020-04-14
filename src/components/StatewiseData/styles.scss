@@ -16,6 +16,15 @@
       text-align: left;
       width: 14rem;
       padding-left: 1rem;
+      color: #ccc;
+      &.district-data-exist {
+        color: #00bcd4;
+        cursor: pointer;
+      }
+      span {
+        margin-right: 0.4rem;
+        font-weight: bold;
+      }
     }
 
     &__head {
@@ -37,7 +46,7 @@
     }
 
     .deceased {
-      color: red;
+      color: #fd7792;
     }
   }
 }

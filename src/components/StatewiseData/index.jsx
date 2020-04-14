@@ -11,7 +11,7 @@ const StatewiseData = ({statewiseData}) => {
     loading: districtwiseLoading
   } = useFetch(`${API_BASE_URL}/state_district_wise.json`);
 
-  console.log({districtwiseData});
+  const [activeState, setActiveState]= React.useState(null);
 
   return (
     <div className="statewise-data">
@@ -27,19 +27,41 @@ const StatewiseData = ({statewiseData}) => {
         </thead>
         <tbody className="statewise-table__body">
         {
-          !!statewiseData && !!statewiseData.statewise && statewiseData.statewise.map(({state, active, confirmed, recovered, deaths, statecode}) => (
-            <tr key={statecode}>
-              <td className="state-name">{state}</td>
-              <td>{confirmed}</td>
-              <td className="active">{active}</td>
-              <td className="recovered">{recovered}</td>
-              <td className="deceased">{deaths}</td>
-            </tr>
-          ))
+          !!statewiseData && !!statewiseData.statewise && statewiseData.statewise.map(({state, active, confirmed, recovered, deaths, statecode}) => {
+            const isDistrictDataExist = !districtwiseLoading && !!districtwiseData && !!districtwiseData[state];
+
+            const districtData = isDistrictDataExist ? districtwiseData[state]['districtData'] : {};
+
+            const iscurrentDistrictActive = !!activeState && activeState === statecode;
+
+            return (
+              <React.Fragment key={statecode}>
+                <tr>
+                  <td className={`state-name ${isDistrictDataExist ? 'district-data-exist' : ''}`}>
+                    <div onClick={() => setActiveState(statecode)}>
+                      {isDistrictDataExist && <span>{iscurrentDistrictActive ? '-' : '+'}</span>}
+                      {state}
+                    </div>
+                  </td>
+                  <td>{confirmed}</td>
+                  <td className="active">{active}</td>
+                  <td className="recovered">{recovered}</td>
+                  <td className="deceased">{deaths}</td>
+                </tr>
+               {iscurrentDistrictActive &&
+                  isDistrictDataExist && (
+                    <tr>
+                      <td className="state-name"></td>
+                      <td colSpan={4}>
+                        <DistrictwiseData districtwiseData={districtData} />
+                      </td>
+                    </tr>
+                )}
+              </React.Fragment>
+          )})
         }
         </tbody>
       </table>
-      {districtwiseLoading ? <div>Loading...</div> : <DistrictwiseData districtwiseData={districtwiseData} />}
     </div>
   )
 }
