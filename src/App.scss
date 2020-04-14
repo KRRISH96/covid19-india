@@ -37,6 +37,18 @@ a {
   color: #61dafb;
 }
 
+.active {
+  color: #ffdc34;
+}
+
+.recovered {
+  color: #4dd599;
+}
+
+.deceased {
+  color: #fd7792;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

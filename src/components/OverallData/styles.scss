@@ -1,0 +1,26 @@
+.overall-data {
+  margin: 2rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  .card {
+    margin: 0.5rem 1rem;
+    padding: 1rem;
+    flex: 1;
+    background-color: #05142e;
+    box-shadow: 0 0 0.5rem 0.125rem #607d8b;
+    border-radius: 0.4rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .status {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+    }
+    .data {
+      margin-top: 1rem;
+      font-weight: 900;
+      font-size: 1.5rem;
+    }
+  }
+}
