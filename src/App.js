@@ -18,7 +18,9 @@ function App() {
         Covid-19 India
       </header>
       <main className="App-main">
-        <StatewiseData statewiseData={statewiseData}/>
+      {
+        statewiseLoading ? <div>Loading...</div> : <StatewiseData statewiseData={statewiseData} />
+      }
       </main>
       <footer className="App-footer">
         <p>Developed by <a href="https://www.linkedin.com/in/kskp1996/">Sai Krishna Prasad K</a></p>

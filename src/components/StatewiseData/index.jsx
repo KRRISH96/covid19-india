@@ -14,8 +14,31 @@ const StatewiseData = ({statewiseData}) => {
 
   return (
     <div>
-      Table Here - State - Confirmed - Active - Recovered - Deaths
-      <DistrictwiseData districtwiseData={districtwiseData}/>
+      <table>
+        <thead>
+          <tr>
+            <th>state</th>
+            <th>confirmed</th>
+            <th>active</th>
+            <th>recovered</th>
+            <th>deceased</th>
+          </tr>
+        </thead>
+        <tbody>
+        {
+          !!statewiseData && !!statewiseData.statewise && statewiseData.statewise.map(({state, active, confirmed, recovered, deaths, statecode}) => (
+            <tr key={statecode}>
+              <td>{state}</td>
+              <td>{confirmed}</td>
+              <td>{active}</td>
+              <td>{recovered}</td>
+              <td>{deaths}</td>
+            </tr>
+          ))
+        }
+        </tbody>
+      </table>
+      {districtwiseLoading ? <div>Loading...</div> : <DistrictwiseData districtwiseData={districtwiseData} />}
     </div>
   )
 }
