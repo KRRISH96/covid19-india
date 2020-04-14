@@ -57,8 +57,7 @@ const StatewiseData = ({statewiseData}) => {
                {iscurrentDistrictActive &&
                   isDistrictDataExist && (
                     <tr>
-                      <td className="state-name"></td>
-                      <td colSpan={4}>
+                      <td colSpan={5}>
                         <DistrictwiseData districtwiseData={districtData} />
                       </td>
                     </tr>

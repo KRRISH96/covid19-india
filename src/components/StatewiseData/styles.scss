@@ -68,12 +68,16 @@
     box-shadow: 0 0 1rem 0px #607d8b;
     border-radius: 0.6rem;
     overflow: hidden;
+    margin: 1rem;
+    display: inline-block;
 
     .districtwise-table {
       min-width: 15rem;
-      width: 100%;
       .district-name {
         width: 10rem;
+        @media only screen and (max-width: 400px) {
+          width: 5rem;
+        }
       }
       &__body {
         tr:nth-child(2n + 1) {
