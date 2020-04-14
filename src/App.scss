@@ -27,12 +27,10 @@
 
 .App-main {
   min-height: calc(100vh - 5rem);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color: #1b262c;
-  color: white;
+  max-width: 40rem;
+  margin: 0 auto;
   padding: 2rem 1rem;
+  color: white;
 }
 
 a {
