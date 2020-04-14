@@ -1,24 +1,27 @@
 .statewise-data {
   overflow-x: auto;
-  .statewise-table {
-    border-collapse: collapse;
+  table {
     border-spacing: 0;
     text-transform: capitalize;
-    min-width: 30rem;
     th,
     td {
       padding: 0.8rem;
       text-align: center;
       width: 4rem;
+      &:first-child {
+        text-align: left;
+        padding-left: 1rem;
+      }
     }
+  }
 
+  .statewise-table {
+    min-width: 30rem;
+    border-collapse: collapse;
     .state-name {
-      text-align: left;
       width: 14rem;
-      padding-left: 1rem;
-      color: #ccc;
       &.district-data-exist {
-        color: #00bcd4;
+        color: #00bcd4 !important;
         cursor: pointer;
       }
       div {
@@ -51,6 +54,32 @@
 
     .deceased {
       color: #fd7792;
+    }
+  }
+
+  .state-name,
+  .district-name {
+    &:not(.head) {
+      color: #ccc;
+    }
+  }
+
+  .districtwise-data {
+    box-shadow: 0 0 1rem 0px #607d8b;
+    border-radius: 0.6rem;
+    overflow: hidden;
+
+    .districtwise-table {
+      min-width: 15rem;
+      width: 100%;
+      .district-name {
+        width: 10rem;
+      }
+      &__body {
+        tr:nth-child(2n + 1) {
+          background-color: #10303e;
+        }
+      }
     }
   }
 }

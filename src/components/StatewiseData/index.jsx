@@ -24,7 +24,7 @@ const StatewiseData = ({statewiseData}) => {
       <table className="statewise-table">
         <thead className="statewise-table__head">
           <tr>
-            <th className="state-name">state</th>
+            <th className="state-name head">state</th>
             <th>confirmed</th>
             <th>active</th>
             <th>recovered</th>
