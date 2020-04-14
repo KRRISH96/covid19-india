@@ -15,12 +15,13 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        Covid-19 India
+        COVID-19 India
       </header>
       <main className="App-main">
       {
         statewiseLoading ? <div>Loading...</div> : <StatewiseData statewiseData={statewiseData} />
       }
+      <p>Source: <a href="https://documenter.getpostman.com/view/10724784/SzYXXKmA?version=latest" target="_blank">COVID 19-India API </a></p>
       </main>
       <footer className="App-footer">
         <p>Developed by <a href="https://www.linkedin.com/in/kskp1996/">Sai Krishna Prasad K</a></p>

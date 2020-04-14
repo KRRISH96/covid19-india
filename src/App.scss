@@ -28,7 +28,8 @@
 .App-main {
   min-height: calc(100vh - 5rem);
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
   background-color: #1b262c;
   color: white;
   padding: 2rem 1rem;
