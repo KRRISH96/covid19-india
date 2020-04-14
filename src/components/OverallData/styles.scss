@@ -1,8 +1,13 @@
 .overall-data {
   margin: 2rem 1rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  @media only screen and (max-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @media only screen and (max-width: 492px) {
+    grid-template-columns: 1fr;
+  }
   .card {
     margin: 0.5rem 1rem;
     padding: 1rem;
