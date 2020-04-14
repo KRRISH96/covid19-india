@@ -13,6 +13,12 @@ const StatewiseData = ({statewiseData}) => {
 
   const [activeState, setActiveState]= React.useState(null);
 
+  const handleStateActiveState = (statecode) => {
+    const updatedActiveState = statecode === activeState ? null : statecode;
+
+    setActiveState(updatedActiveState);
+  }
+
   return (
     <div className="statewise-data">
       <table className="statewise-table">
@@ -38,9 +44,9 @@ const StatewiseData = ({statewiseData}) => {
               <React.Fragment key={statecode}>
                 <tr>
                   <td className={`state-name ${isDistrictDataExist ? 'district-data-exist' : ''}`}>
-                    <div onClick={() => setActiveState(statecode)}>
-                      {isDistrictDataExist && <span>{iscurrentDistrictActive ? '-' : '+'}</span>}
-                      {state}
+                    <div onClick={() => handleStateActiveState(statecode)}>
+                      {isDistrictDataExist && <span className="toggle-icon">{iscurrentDistrictActive ? '-' : '+'}</span>}
+                      <span>{state}</span>
                     </div>
                   </td>
                   <td>{confirmed}</td>

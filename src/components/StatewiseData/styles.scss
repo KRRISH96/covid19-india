@@ -21,8 +21,12 @@
         color: #00bcd4;
         cursor: pointer;
       }
-      span {
-        margin-right: 0.4rem;
+      div {
+        display: flex;
+      }
+      .toggle-icon {
+        display: inline-flex;
+        width: 1rem;
         font-weight: bold;
       }
     }
