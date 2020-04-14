@@ -2,6 +2,7 @@ import React from 'react';
 import DistrictwiseData from '../DistrictwiseData';
 import { useFetch } from '../../customHooks/useFetch';
 import { API_BASE_URL } from '../../constants';
+import './styles.scss';
 
 const StatewiseData = ({statewiseData}) => {
   const {
@@ -13,7 +14,7 @@ const StatewiseData = ({statewiseData}) => {
   console.log({districtwiseData});
 
   return (
-    <div>
+    <div className="statewise-data-table">
       <table>
         <thead>
           <tr>
