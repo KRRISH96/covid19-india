@@ -20,9 +20,13 @@ const StatewiseData = ({statewiseData}) => {
     setActiveState(updatedActiveState);
   }
 
+  const isStatewiseDataExist = !!statewiseData && !!statewiseData.statewise;
+
+  const overallData = isStatewiseDataExist ? statewiseData.statewise.find(({statecode}) => statecode === 'TT') : null;
+
   return (
     <React.Fragment>
-    <OverallData />
+    <OverallData overallData={overallData} />
       <div className="statewise-data">
         <table className="statewise-table">
           <thead className="statewise-table__head">
@@ -36,7 +40,9 @@ const StatewiseData = ({statewiseData}) => {
           </thead>
           <tbody className="statewise-table__body">
           {
-            !!statewiseData && !!statewiseData.statewise && statewiseData.statewise.map(({state, active, confirmed, recovered, deaths, statecode}) => {
+            isStatewiseDataExist && statewiseData.statewise.map(({state, active, confirmed, recovered, deaths, statecode}) => {
+              if (statecode === 'TT') return;
+
               const isDistrictDataExist = !districtwiseLoading && !!districtwiseData && !!districtwiseData[state];
 
               const districtData = isDistrictDataExist ? districtwiseData[state]['districtData'] : {};
