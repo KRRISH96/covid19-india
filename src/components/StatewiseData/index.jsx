@@ -26,7 +26,10 @@ const StatewiseData = ({statewiseData}) => {
 
   return (
     <React.Fragment>
-    <OverallData overallData={overallData} />
+      <OverallData overallData={overallData} />
+      <p>
+        <small>Last Update At: {overallData.lastupdatedtime || ''} | <a href={window.location.href}>Reload</a></small>
+      </p>
       <div className="statewise-data">
         <table className="statewise-table">
           <thead className="statewise-table__head">
