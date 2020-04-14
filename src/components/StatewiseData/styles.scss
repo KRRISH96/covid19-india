@@ -1,6 +1,43 @@
-.statewise-data-table {
-  th,
-  td {
-    padding: 0.5rem 1rem;
+.statewise-data {
+  overflow-x: auto;
+  .statewise-table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    text-transform: capitalize;
+    min-width: 30rem;
+    th,
+    td {
+      padding: 0.8rem;
+      text-align: center;
+      width: 4rem;
+    }
+
+    .state-name {
+      text-align: left;
+      width: 14rem;
+      padding-left: 1rem;
+    }
+
+    &__head {
+      background-color: #003f5c;
+    }
+
+    &__body {
+      tr {
+        border-bottom-style: groove;
+      }
+    }
+
+    .active {
+      color: #ffdc34;
+    }
+
+    .recovered {
+      color: #4dd599;
+    }
+
+    .deceased {
+      color: red;
+    }
   }
 }

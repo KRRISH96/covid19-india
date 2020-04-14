@@ -14,26 +14,26 @@ const StatewiseData = ({statewiseData}) => {
   console.log({districtwiseData});
 
   return (
-    <div className="statewise-data-table">
-      <table>
-        <thead>
+    <div className="statewise-data">
+      <table className="statewise-table">
+        <thead className="statewise-table__head">
           <tr>
-            <th>state</th>
+            <th className="state-name">state</th>
             <th>confirmed</th>
             <th>active</th>
             <th>recovered</th>
             <th>deceased</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody className="statewise-table__body">
         {
           !!statewiseData && !!statewiseData.statewise && statewiseData.statewise.map(({state, active, confirmed, recovered, deaths, statecode}) => (
             <tr key={statecode}>
-              <td>{state}</td>
+              <td className="state-name">{state}</td>
               <td>{confirmed}</td>
-              <td>{active}</td>
-              <td>{recovered}</td>
-              <td>{deaths}</td>
+              <td className="active">{active}</td>
+              <td className="recovered">{recovered}</td>
+              <td className="deceased">{deaths}</td>
             </tr>
           ))
         }
