@@ -19,9 +19,10 @@ const TimelineChart = ({timeline}) => {
   if (!!timeline) {
     timeline.forEach(({date, totalconfirmed, totalrecovered, totaldeceased}) => {
       if (totalconfirmed > 0) {
-        confirmedData[date] = totalconfirmed
-        recoveredData[date] = totalrecovered
-        deceasedData[date] = totaldeceased
+        const dateWithYear = `${date}2020`
+        confirmedData[dateWithYear] = totalconfirmed
+        recoveredData[dateWithYear] = totalrecovered
+        deceasedData[dateWithYear] = totaldeceased
       }
     })
 
