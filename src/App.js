@@ -4,6 +4,7 @@ import './App.scss';
 import { useFetch } from './customHooks/useFetch';
 import StatewiseData from './components/StatewiseData';
 import { API_BASE_URL } from './constants';
+import SkeletonLoader from './components/SkeletonLoader';
 
 function App() {
   const {
@@ -18,6 +19,7 @@ function App() {
         COVID-19 India
       </header>
       <main className="App-main">
+      <SkeletonLoader />
       {
         statewiseLoading ? <div>Loading...</div> : <StatewiseData statewiseData={statewiseData} />
       }
