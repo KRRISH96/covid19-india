@@ -18,18 +18,26 @@
   align-items: center;
   justify-content: center;
   color: #fd7792;
-  box-shadow: inset 0 0 1rem 1rem #485a7e;
+  font-weight: bold;
 }
 
 .App-header {
+  background: linear-gradient(180deg, #fd7792, #fff, #4dd599) !important;
+  box-shadow: inset 0 0 4rem 0 #485a7e;
   font-size: 1.5rem;
+  letter-spacing: 0.2rem;
+  color: #3F51B5;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
 }
 
 .App-main {
   min-height: calc(100vh - 5rem);
   max-width: 40rem;
   margin: 0 auto;
-  padding: 2rem 1rem;
+  padding: 5rem 1rem;
   color: white;
 }
 
