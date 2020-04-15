@@ -4,6 +4,7 @@ import { useFetch } from '../../customHooks/useFetch';
 import { API_BASE_URL } from '../../constants';
 import './styles.scss';
 import OverallData from '../OverallData';
+import TimelineChart from '../TimelineChart';
 
 const StatewiseData = ({statewiseData}) => {
   const {
@@ -27,6 +28,7 @@ const StatewiseData = ({statewiseData}) => {
   return (
     <React.Fragment>
       <OverallData overallData={overallData} />
+      <TimelineChart timeline={ statewiseData.cases_time_series || [] } />
       <p>
         <small>Last Update At: {overallData.lastupdatedtime || ''} | <a href={window.location.href}>Reload</a></small>
       </p>
