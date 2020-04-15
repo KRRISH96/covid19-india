@@ -16,7 +16,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        COVID-19 India
+        COVID-19 🇮🇳 India
       </header>
       <main className="App-main">
       {
