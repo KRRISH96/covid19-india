@@ -24,7 +24,7 @@ function App() {
           <React.Fragment>
             <StatewiseData statewiseData={statewiseData} />
             <p>
-              Source: <a href="https://documenter.getpostman.com/view/10724784/SzYXXKmA?version=latest" target="_blank">COVID 19-India API </a>
+              Source: <a href="https://documenter.getpostman.com/view/10724784/SzYXXKmA?version=latest" target="_blank" rel="noreferrer">COVID 19-India API </a>
             </p>
           </React.Fragment>
         )
