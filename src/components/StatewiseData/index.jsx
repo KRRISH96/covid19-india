@@ -29,9 +29,7 @@ const StatewiseData = ({statewiseData}) => {
     <React.Fragment>
       <OverallData overallData={overallData} />
       <TimelineChart timeline={ statewiseData.cases_time_series || [] } />
-      <p>
-        <small>Last Update At: {overallData.lastupdatedtime || ''} | <a href={window.location.href}>Reload</a></small>
-      </p>
+      <p><small>* click on state for district data</small></p>
       <div className="statewise-data">
         <table className="statewise-table">
           <thead className="statewise-table__head">
@@ -82,6 +80,9 @@ const StatewiseData = ({statewiseData}) => {
           </tbody>
         </table>
       </div>
+      <p>
+        <small>Last Update At: {overallData.lastupdatedtime || ''} | <a href={window.location.href}>Reload</a></small>
+      </p>
     </React.Fragment>
   )
 }
