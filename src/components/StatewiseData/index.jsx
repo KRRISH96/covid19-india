@@ -80,6 +80,11 @@ const StatewiseData = ({statewiseData}) => {
           </tbody>
         </table>
       </div>
+      <TimelineChart
+        timeline={statewiseData.cases_time_series || []}
+        chartFor="daily"
+        type="area"
+      />
       <p>
         <small>Last Update At: {overallData.lastupdatedtime || ''} | <a href={window.location.href}>Reload</a></small>
       </p>

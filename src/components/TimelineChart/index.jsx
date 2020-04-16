@@ -1,9 +1,9 @@
 import React from 'react';
-import { AreaChart } from 'react-chartkick'
+import { LineChart, AreaChart } from 'react-chartkick'
 import 'chart.js'
 import './styles.scss';
 
-const TimelineChart = ({timeline}) => {
+const TimelineChart = ({timeline, chartFor='total', type="line"}) => {
   let data = [
     { name: 'Confirmed', data: {} },
     { name: 'Recovered', data: {} },
@@ -17,13 +17,11 @@ const TimelineChart = ({timeline}) => {
   const colors = ["#ffffff", "#4dd599", "#fd7792"];
 
   if (!!timeline) {
-    timeline.forEach(({date, totalconfirmed, totalrecovered, totaldeceased}) => {
-      if (totalconfirmed > 0) {
-        const dateWithYear = `${date}2020`
-        confirmedData[dateWithYear] = totalconfirmed
-        recoveredData[dateWithYear] = totalrecovered
-        deceasedData[dateWithYear] = totaldeceased
-      }
+    timeline.forEach(day => {
+      const dateWithYear = `${day['date']}2020`
+        confirmedData[dateWithYear] = day[`${chartFor}confirmed`]
+        recoveredData[dateWithYear] = day[`${chartFor}recovered`]
+        deceasedData[dateWithYear] = day[`${chartFor}deceased`]
     })
 
     data = [
@@ -33,9 +31,11 @@ const TimelineChart = ({timeline}) => {
     ]
   }
 
+  const ChartType = type === 'area' ? AreaChart : LineChart;
+
   return (
     <div className="timeline-chart-wrapper">
-      <AreaChart data={data} colors={colors} />
+      <ChartType data={data} colors={colors} title={`${chartFor} cases`} />
     </div>
   )
 }
