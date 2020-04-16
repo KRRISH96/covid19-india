@@ -23,12 +23,14 @@ const StatewiseData = ({statewiseData}) => {
 
   const isStatewiseDataExist = !!statewiseData && !!statewiseData.statewise;
 
-  const overallData = isStatewiseDataExist ? statewiseData.statewise.find(({statecode}) => statecode === 'TT') : null;
+  const overallData = isStatewiseDataExist ? statewiseData.statewise.find(({statecode}) => statecode === 'TT') : {};
+
+  const timeSeriesData = !!statewiseData ? statewiseData.cases_time_series : [];
 
   return (
     <React.Fragment>
       <OverallData overallData={overallData} />
-      <TimelineChart timeline={ statewiseData.cases_time_series || [] } />
+      <TimelineChart timeline={timeSeriesData} />
       <p><small>* click on state for district data</small></p>
       <div className="statewise-data">
         <table className="statewise-table">
@@ -43,7 +45,7 @@ const StatewiseData = ({statewiseData}) => {
           </thead>
           <tbody className="statewise-table__body">
           {
-            isStatewiseDataExist && statewiseData.statewise.map(({state, active, confirmed, recovered, deaths, statecode}) => {
+            isStatewiseDataExist ? statewiseData.statewise.map(({state, active, confirmed, recovered, deaths, statecode}) => {
               if (statecode === 'TT') return;
 
               const isDistrictDataExist = !districtwiseLoading && !!districtwiseData && !!districtwiseData[state];
@@ -75,18 +77,22 @@ const StatewiseData = ({statewiseData}) => {
                       </tr>
                   )}
                 </React.Fragment>
-            )})
+            )}) : (
+              <tr>
+                <td colSpan={5}>No Data Found</td>
+              </tr>
+            )
           }
           </tbody>
         </table>
       </div>
       <TimelineChart
-        timeline={statewiseData.cases_time_series || []}
+        timeline={timeSeriesData}
         chartFor="daily"
         type="area"
       />
       <p>
-        <small>Last Update At: {overallData.lastupdatedtime || ''} | <a href={window.location.href}>Reload</a></small>
+        <small>Last Update At: {!!overallData ? overallData.lastupdatedtime : '-'} | <a href={window.location.href}>Reload</a></small>
       </p>
     </React.Fragment>
   )
