@@ -57,6 +57,12 @@ a {
   color: #fd7792;
 }
 
+.data {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

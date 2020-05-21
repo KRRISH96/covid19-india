@@ -45,7 +45,9 @@ const StatewiseData = ({statewiseData}) => {
           </thead>
           <tbody className="statewise-table__body">
           {
-            isStatewiseDataExist ? statewiseData.statewise.map(({state, active, confirmed, recovered, deaths, statecode}) => {
+            isStatewiseDataExist ? statewiseData.statewise.map(({
+              state, active, confirmed, recovered, deaths, statecode, deltaconfirmed, deltarecovered, deltadeaths
+              }) => {
               if (statecode === 'TT') return;
 
               const isDistrictDataExist = !districtwiseLoading && !!districtwiseData && !!districtwiseData[state];
@@ -63,10 +65,25 @@ const StatewiseData = ({statewiseData}) => {
                         <span>{state}</span>
                       </div>
                     </td>
-                    <td>{confirmed}</td>
+                    <td>
+                      <span className="data">
+                        {confirmed}
+                        <small>+{deltaconfirmed}</small>
+                      </span>
+                    </td>
                     <td className="active">{active}</td>
-                    <td className="recovered">{recovered}</td>
-                    <td className="deceased">{deaths}</td>
+                    <td className="recovered">
+                      <span className="data">
+                        {recovered}
+                        <small>+{deltarecovered}</small>
+                      </span>
+                    </td>
+                    <td className="deceased">
+                      <span className="data">
+                        {deaths}
+                        <small>+{deltadeaths}</small>
+                      </span>
+                    </td>
                   </tr>
                 {iscurrentDistrictActive &&
                     isDistrictDataExist && (
