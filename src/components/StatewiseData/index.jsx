@@ -72,15 +72,15 @@ const StatewiseData = ({statewiseData}) => {
                         <small>+{deltaconfirmed}</small>
                       </span>
                     </td>
-                    <td className="active">{active}</td>
-                    <td className="recovered">
-                      <span className="data">
+                    <td><span className="data active">{active}</span></td>
+                    <td>
+                      <span className="data recovered">
                         {recovered}
                         <small>+{deltarecovered}</small>
                       </span>
                     </td>
-                    <td className="deceased">
-                      <span className="data">
+                    <td>
+                      <span className="data deceased">
                         {deaths}
                         <small>+{deltadeaths}</small>
                       </span>
