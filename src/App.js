@@ -19,6 +19,9 @@ function App() {
       </header>
       <main className="App-main">
       {
+        !!statewiseError && <p className="error">State Data:{statewiseError}</p>
+      }
+      {
         statewiseLoading ? <SkeletonLoader /> : (
           <React.Fragment>
             <StatewiseData statewiseData={statewiseData} />

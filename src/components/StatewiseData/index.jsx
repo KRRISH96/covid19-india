@@ -31,6 +31,7 @@ const StatewiseData = ({statewiseData}) => {
     <React.Fragment>
       <OverallData overallData={overallData} />
       <TimelineChart timeline={timeSeriesData} />
+      {!!districtwiseError && <p className="error">District Data: {districtwiseError}</p>}
       <p><small>* click on state for district data</small></p>
       <div className="statewise-data">
         <table className="statewise-table">

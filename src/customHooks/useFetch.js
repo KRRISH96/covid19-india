@@ -24,7 +24,7 @@ export function useFetch(url) {
           setResponse(responseJson);
         }
       } catch (err) {
-        setError(err || 'Something went wrong!');
+        setError(err.message || 'Something went wrong!');
       }
       setLoading(false);
     };

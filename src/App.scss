@@ -67,6 +67,14 @@ a {
   align-items: flex-end;
 }
 
+.error {
+  border-radius: 0.4rem;
+  color: red;
+  background-color: black;
+  border-left: 0.2rem solid red;
+  padding: 1rem;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
