@@ -15,7 +15,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <a href={window.location.href}>COVID-19 <span role="img" aria-label="indian-flag-emoji">🇮🇳</span> India</a>
+        <a href={window.location.href} className="logo">COVID-19 <span role="img" aria-label="indian-flag-emoji">🇮🇳</span> India</a>
       </header>
       <main className="App-main">
       {
