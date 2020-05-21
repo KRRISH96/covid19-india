@@ -48,7 +48,7 @@ const StatewiseData = ({statewiseData}) => {
             isStatewiseDataExist ? statewiseData.statewise.map(({
               state, active, confirmed, recovered, deaths, statecode, deltaconfirmed, deltarecovered, deltadeaths
               }) => {
-              if (statecode === 'TT') return;
+              if (statecode === 'TT' || Number(confirmed) === 0) return null;
 
               const isDistrictDataExist = !districtwiseLoading && !!districtwiseData && !!districtwiseData[state];
 
