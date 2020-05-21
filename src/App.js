@@ -1,10 +1,9 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.scss';
-import { useFetch } from './customHooks/useFetch';
-import StatewiseData from './components/StatewiseData';
-import { API_BASE_URL } from './constants';
 import SkeletonLoader from './components/SkeletonLoader';
+import StatewiseData from './components/StatewiseData';
+import { useFetch } from './customHooks/useFetch';
+import { API_BASE_URL } from './constants';
+import './App.scss';
 
 function App() {
   const {
@@ -16,7 +15,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        COVID-19 🇮🇳 India
+        <a href={window.location.href}>COVID-19 <span role="img" aria-label="indian-flag-emoji">🇮🇳</span> India</a>
       </header>
       <main className="App-main">
       {
@@ -24,7 +23,7 @@ function App() {
           <React.Fragment>
             <StatewiseData statewiseData={statewiseData} />
             <p>
-              Source: <a href="https://documenter.getpostman.com/view/10724784/SzYXXKmA?version=latest" target="_blank" rel="noreferrer">COVID 19-India API </a>
+              Source: <a href="https://documenter.getpostman.com/view/10724784/SzYXXKmA?version=latest" target="_blank" rel="noopener noreferrer">COVID 19-India API</a>
             </p>
           </React.Fragment>
         )
