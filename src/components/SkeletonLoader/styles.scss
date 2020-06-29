@@ -6,7 +6,7 @@
 
   .placeholder {
     display: block;
-    background-color: #35495e;
+    background-color: #35495e !important;
     background-image: linear-gradient(120deg, #35495e, #2b373f, #35495e);
     background-position: -12rem 0;
     animation: shimmerBackground 1s linear infinite;
