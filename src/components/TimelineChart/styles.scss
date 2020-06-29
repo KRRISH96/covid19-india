@@ -2,6 +2,24 @@
   background-color: #05142e;
   padding: 1rem;
   border-radius: 0.5rem;
-  margin: 2rem 0;
+  margin: 0.5rem 0 2rem;
   box-shadow: 0 0 0.5rem 0.4rem #061d28;
+}
+
+.period-list {
+  list-style-type: none;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-bottom: 0;
+  li {
+    border: 1px solid #9cc3b7;
+    padding: 0.5rem;
+    cursor: pointer;
+    &.period-active,
+    &:hover {
+      background: #9cc3b7;
+      color: #05142e;
+    }
+  }
 }
