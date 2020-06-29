@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState, useEffect } from 'react';
 import { LineChart, AreaChart } from 'react-chartkick'
 import 'chart.js'
 import './styles.scss';
@@ -13,33 +13,34 @@ const TIMELINE_PERIODS ={
 
 const TimelineChart = ({timeline, chartFor='total', type="line"}) => {
   const [activePeriod, setActivePeriod] = useState(30);
-
-  let data = [
+  const [data, setData] = useState([
     { name: 'Confirmed', data: {} },
     { name: 'Recovered', data: {} },
     { name: 'Deceased', data: {} },
-  ];
-
-  let confirmedData = {};
-  let recoveredData = {};
-  let deceasedData = {};
+  ]);
 
   const colors = ["#ffffff", "#4dd599", "#fd7792"];
+  
+  useEffect(() => {
+    if (!!timeline) {
+      let confirmedData = {};
+      let recoveredData = {};
+      let deceasedData = {};
+      Object.keys(timeline).slice(-1 * activePeriod).forEach(idx => {
+        const day = timeline[idx];
+        const dateWithYear = `${day['date']}2020`
+          confirmedData[dateWithYear] = day[`${chartFor}confirmed`]
+          recoveredData[dateWithYear] = day[`${chartFor}recovered`]
+          deceasedData[dateWithYear] = day[`${chartFor}deceased`]
+      })
 
-  if (!!timeline) {
-    timeline.forEach(day => {
-      const dateWithYear = `${day['date']}2020`
-        confirmedData[dateWithYear] = day[`${chartFor}confirmed`]
-        recoveredData[dateWithYear] = day[`${chartFor}recovered`]
-        deceasedData[dateWithYear] = day[`${chartFor}deceased`]
-    })
-
-    data = [
-      { name: 'Confirmed', data: confirmedData },
-      { name: 'Recovered', data: recoveredData },
-      { name: 'Deceased', data: deceasedData },
-    ]
-  }
+      setData([
+        { name: 'Confirmed', data: confirmedData },
+        { name: 'Recovered', data: recoveredData },
+        { name: 'Deceased', data: deceasedData },
+      ])
+    }
+  }, [activePeriod, timeline, chartFor])
 
   const ChartType = type === 'area' ? AreaChart : LineChart;
 
