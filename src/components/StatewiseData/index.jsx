@@ -30,7 +30,11 @@ const StatewiseData = ({statewiseData}) => {
   return (
     <React.Fragment>
       <OverallData overallData={overallData} />
-      <TimelineChart timeline={timeSeriesData} />
+      <TimelineChart
+        timeline={timeSeriesData}
+        chartFor="daily"
+        type="area"
+      />
       {!!districtwiseError && <p className="error">District Data: {districtwiseError}</p>}
       <p><small>* click on state for district data</small></p>
       <div className="statewise-data">
@@ -104,11 +108,7 @@ const StatewiseData = ({statewiseData}) => {
           </tbody>
         </table>
       </div>
-      <TimelineChart
-        timeline={timeSeriesData}
-        chartFor="daily"
-        type="area"
-      />
+      <TimelineChart timeline={timeSeriesData} />
       <p>
         <small>Last Update At: {!!overallData ? overallData.lastupdatedtime : '-'} | <a href={window.location.href}>Reload</a></small>
       </p>
