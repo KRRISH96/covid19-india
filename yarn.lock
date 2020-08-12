@@ -8762,10 +8762,10 @@ react-app-polyfill@^1.0.6:
     regenerator-runtime "^0.13.3"
     whatwg-fetch "^3.0.0"
 
-react-chartkick@^0.4.0:
-  version "0.4.0"
-  resolved "https://registry.yarnpkg.com/react-chartkick/-/react-chartkick-0.4.0.tgz#1de94397a44df65ccd52668eadc0ddafc7c436b8"
-  integrity sha512-X3TDaO/UfPfanxuZuraPVPYdTSNaDVrjn6lucrFES8DxtdYvcDT2svTtaKzuGyhIXVl1s1LEyDS5x5Xo1XMQJg==
+react-chartkick@^0.4.1:
+  version "0.4.1"
+  resolved "https://registry.yarnpkg.com/react-chartkick/-/react-chartkick-0.4.1.tgz#1a699071a01a9a192fa2033c7c61b1b4ab0d70a6"
+  integrity sha512-ydShYzYGCkphlUUMaN6gHHyS+Na9hRj1nvkSvB+cIU3E9JkGkj0Eiin7Y/NJ5165uiQtIbvuWvrPq2vbZHQmCA==
   dependencies:
     chartkick "^3.2.0"
 
