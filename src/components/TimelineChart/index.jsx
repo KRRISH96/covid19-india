@@ -28,7 +28,7 @@ const TimelineChart = ({timeline, chartFor='total', type="line"}) => {
       let deceasedData = {};
       Object.keys(timeline).slice(-1 * activePeriod).forEach(idx => {
         const day = timeline[idx];
-        const dateWithYear = `${day['date']}2020`
+        const dateWithYear = `${day['dateymd']}`
           confirmedData[dateWithYear] = day[`${chartFor}confirmed`]
           recoveredData[dateWithYear] = day[`${chartFor}recovered`]
           deceasedData[dateWithYear] = day[`${chartFor}deceased`]
