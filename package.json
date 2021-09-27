@@ -4,7 +4,7 @@
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.14.1",
-    "@testing-library/react": "^11.2.5",
+    "@testing-library/react": "^12.1.1",
     "@testing-library/user-event": "^13.0.10",
     "chart.js": "^2.9.4",
     "node-sass": "^5.0.0",
