@@ -6,7 +6,7 @@
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^11.2.5",
     "@testing-library/user-event": "^13.0.10",
-    "chart.js": "^2.9.4",
+    "chart.js": "^3.8.2",
     "node-sass": "^5.0.0",
     "react": "^17.0.2",
     "react-chartkick": "^0.5.1",
